@@ -1,8 +1,20 @@
-function setup() {
-createCanvas(windoWidth, windowHight); this creates the window width and hight to be the size of my browser
-background (179,230,198);
+
+function setup() { //runs once
+  createCanvas(windowWidth,windowHeight);
+  fill (149, 185, 237);
+  strokeWeight(1)
 }
 
-function draw() {
+function draw() {//runs in a loop
+
+var num=10;
+  var sideLen = windowWidth/num;
+
+  for (var y = 0;y < windowHeight; y = y + sideLen)
+    for (var x = 0; x < windowWidth; x = x + sideLen)
+  quad(x,y,
+      x + sideLen, y,
+      x + sideLen, y + sideLen,
+      x, y + sideLen)
 
 }
