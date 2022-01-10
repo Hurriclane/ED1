@@ -1,7 +1,70 @@
 html, body {
   margin: 0;
   padding: 0;
+  font-family:'Roboto', sans-serif;
+  background-color: rgb(255, 255, 255);
 }
+
 canvas {
   display: block;
+  z-index: -1;
+}
+
+img {
+  border: 5px solid #000;
+}
+
+h1{
+  color: black;
+     position: absolute;
+     left: 50%;
+     transform: translateX(-50%) translateY(-50%);
+     text-align: center;
+     top: 0%;
+}
+
+p{
+    position: absolute;
+    font-size: 0.875em;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    text-align:center;
+    top: 5%;
+}
+
+table{
+  position: absolute;
+  z-index: 1;
+  width:100%;
+  top: 10%;
+
+}
+
+td {
+    width: 33vw;
+    height: 33vw;
+    vertical-align: baseline;
+    padding-top:10px;
+    text-align:center;
+
+    &:after, &:before {
+        content: '';
+
+        display: block;
+        padding-bottom: calc(50% - 0.5em);
+    }
+}
+
+.container{
+  position: relative;
+}
+
+.project {
+  position: absolute;
+  width:50%;
+  float: left;
+
+  left: 0px;
+  top: 0px;
+  z-index: 1;
 }
