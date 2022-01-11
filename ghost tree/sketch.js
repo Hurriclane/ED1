@@ -1,13 +1,17 @@
+var pW = 11
+var pH = 8.5
 
 function setup() {
-  createCanvas(600, 600)
+  createCanvas(pW * 72, pH * 72, SVG)
+  strokeWeight (1);
+  noFill();
   angleMode(DEGREES)
 
   noLoop()
 }
 
 function draw(){
-  background(100)
+  background(230)
 
   translate(width / 2, height / 2 + 200)
 
@@ -26,11 +30,10 @@ function branch (len){
     rotate(random(50,60))
     branch(len * random(0.7, 0.9))
   } else {
-    var r = 66 + random(-20,20)
-    var g = 239 + random(-20,20)
-    var b = 245 + random(-20,20)
-    fill(r, g, b)
-    noStroke()
+    var r = 163 + random(-20,20)
+    var g = 25 + random(-20,20)
+    var b = 10 + random(-20,20)
+    stroke(r, g, b)
 
     beginShape()
     for (var i = 45; i < 135; i++){
@@ -47,5 +50,10 @@ function branch (len){
          }
     endShape(CLOSE)
   }
-  pop()
+  pop();
+
+  save("Ghosttree.svg");
+  print("saved svg")
+  noLoop();
+
 }
