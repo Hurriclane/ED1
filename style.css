@@ -15,7 +15,7 @@ img {
 }
 
 h1{
-  color: white;
+  color: Blue;
      position: absolute;
      left: 50%;
      transform: translateX(-50%) translateY(-50%);

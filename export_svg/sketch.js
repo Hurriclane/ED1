@@ -1,24 +1,58 @@
-/* export SVG
-DDF 2019
-need to have p5.svg.js in project and in index.html
-see -https://github.com/zenozeng/p5.js-svg
-this will save an SVG file in your download folder
-*/
+var pW = 11
+var pH = 8.5
 
 function setup() {
-  createCanvas(200, 200, SVG); // Create SVG Canvas
-  strokeWeight(1); // do 0.1 for laser
-  stroke(255, 0, 0); // red is good for laser
-  noFill(); // better not to have a fill for laser
+  createCanvas(pW * 72, pH * 72, SVG);
+  strokeWeight (1);
+  noFill();
+  angleMode(DEGREES);
+
 }
 
-function draw() {
-  for (x = 0; x < 10; x++) {
-    for (y = 0; y < 10; y++) {
-      rect(x * 10, y * 10, x, y);
-    }
+function draw(){
+  background(230);
+
+  translate(width / 2, height / 2 + 200);
+
+  branch(100);
+}
+
+function branch (len){
+  push();
+  if (len > 10){
+    strokeWeight (map(len, 10, 100, 1, 15));
+    stroke(70, 40,20);
+    line(0, 0, 0, -len);
+    translate(0, -len);
+    rotate(random(-20, -30));
+    branch(len * random(0.7, 0.9));
+    rotate(random(50,60));
+    branch(len * random(0.7, 0.9));
+  } else {
+    var r = 163 + random(-20,20);
+    var g = 25 + random(-20,20);
+    var b = 10 + random(-20,20);
+    stroke(r, g, b)
+
+    beginShape()
+    for (var i = 45; i < 135; i++){
+         var rad = 15
+         var x = rad * cos(i)
+         var y = rad * sin (i)
+         vertex(x, y)
+         }
+    for (var j = 135; j > 40; j--){
+         var rad = 15
+         var v = rad * cos(i)
+         var w = rad * sin (i) + 20
+         vertex(x, y);
+         }
+    endShape(CLOSE);
   }
-  save("mySVG.svg"); // give file name
-  print("saved svg");
-  noLoop(); // we just want to export once
+  pop();
+
+  save("Ghosttree.svg");
+  print("saved svg")
+  noLoop();
+
 }
