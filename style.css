@@ -14,8 +14,12 @@ img {
   border: 5px solid #000;
 }
 
+h2{
+  position: absolute;
+}
+
 h1{
-  color: Blue;
+  color: violet;
      position: absolute;
      left: 50%;
      transform: translateX(-50%) translateY(-50%);
